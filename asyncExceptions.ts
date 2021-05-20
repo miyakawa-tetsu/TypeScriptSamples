@@ -30,23 +30,31 @@ interface exchange  {
   rate_float: number
 }
 
-async function getBitcoinData (): Promise<bitcoinData | string> {
+async function getBitcoinData (): Promise<bitcoinData | string | void> {
   try {
+    // throw new TypeError('エラーです。')
     const response = await axiod.get("https://api.coindesk.com/v1/bpi/currentprice.json");
     const data:bitcoinData = response.data;
     return data;
-  } catch (e: Error) {
-    return e;
+  } catch (e) {
+    // console.log(e);
+    if (e instanceof Error) {
+      return e.message;
+    } else if (e.response.status === 404){
+      console.error(e.response.statusText);
+    }
   }
 }
 
-function main () {
-  try {
-    console.log("OK");
-  } catch (e: Error) {
+console.log(await getBitcoinData());
 
-  }
-}
+// function main () {
+//   try {
+//     console.log("OK");
+//   } catch (e) {
+
+//   }
+// }
 
 // const a = new Promise().catch(e:Error => {
 
