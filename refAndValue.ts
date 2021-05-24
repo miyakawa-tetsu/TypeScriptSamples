@@ -12,14 +12,14 @@ function multiply(n: number): number {
  * このような使い方は望ましくなく、可能な限り引数はイミュータブルに保つことが求められる
  * @param nArr 
  */
-function multiplyArr (nArr: number[]): void { // : number[] {
+function multiplyArr (nArr: number[]) : number[] { // : void { 
 	for(let i = 0; i< nArr.length; i++) {
 		nArr[i] = nArr[i] * 2;
 	}
-	// return nArr;
+	return nArr;
 }
 
-(()=> {
+(() => { // 無名関数
 
 	const n = 1;
 	console.log(n);
@@ -28,6 +28,7 @@ function multiplyArr (nArr: number[]): void { // : number[] {
 
 	const n2 = [1,2,3];
 	console.log(n2);
-	multiplyArr(n2);
+	console.log(multiplyArr(n2));
 	console.log(n2);
+
 })();

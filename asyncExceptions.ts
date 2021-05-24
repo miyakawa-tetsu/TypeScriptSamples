@@ -30,8 +30,9 @@ interface exchange  {
   rate_float: number
 }
 
-async function getBitcoinData (): Promise<bitcoinData | string> {
+async function getBitcoinData (): Promise<bitcoinData | string | void> {
   try {
+    // throw new TypeError('エラーです。')
     const response = await axiod.get("https://api.coindesk.com/v1/bpi/currentprice.json");
     const data:bitcoinData = response.data;
     return data;
@@ -42,7 +43,6 @@ async function getBitcoinData (): Promise<bitcoinData | string> {
 }
 
 await getBitcoinData();
-
 // const a = new Promise().catch(e:Error => {
 
 // })
