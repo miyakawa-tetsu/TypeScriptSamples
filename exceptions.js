@@ -10,6 +10,4 @@ function toUppercase(string) {
     toUppercase(4);
   } catch (error) {
     console.error(error.message);
-  } finally {
-    
   }

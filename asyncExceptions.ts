@@ -35,18 +35,13 @@ async function getBitcoinData (): Promise<bitcoinData | string> {
     const response = await axiod.get("https://api.coindesk.com/v1/bpi/currentprice.json");
     const data:bitcoinData = response.data;
     return data;
-  } catch (e: Error) {
+  } catch (e) {
+    // axiod(axios)はErrorオブジェクトでなく専用のオブジェクトをthrowしてるっぽい
     return e;
   }
 }
 
-function main () {
-  try {
-    console.log("OK");
-  } catch (e: Error) {
-
-  }
-}
+await getBitcoinData();
 
 // const a = new Promise().catch(e:Error => {
 
