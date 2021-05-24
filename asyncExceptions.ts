@@ -37,25 +37,12 @@ async function getBitcoinData (): Promise<bitcoinData | string | void> {
     const data:bitcoinData = response.data;
     return data;
   } catch (e) {
-    // console.log(e);
-    if (e instanceof Error) {
-      return e.message;
-    } else if (e.response.status === 404){
-      console.error(e.response.statusText);
-    }
+    // axiod(axios)はErrorオブジェクトでなく専用のオブジェクトをthrowしてるっぽい
+    return e;
   }
 }
 
-console.log(await getBitcoinData());
-
-// function main () {
-//   try {
-//     console.log("OK");
-//   } catch (e) {
-
-//   }
-// }
-
+await getBitcoinData();
 // const a = new Promise().catch(e:Error => {
 
 // })
