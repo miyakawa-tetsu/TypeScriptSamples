@@ -20,7 +20,9 @@ interface IUserRepository {
 }
 
 class NullUser implements IUser {
-  incrementSessionTicket() {}
+  incrementSessionTicket() {
+    console.log("NG")
+  }
 }
 
 class UserRepository implements IUserRepository {

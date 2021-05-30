@@ -16,10 +16,10 @@
 
 
 
-function getDate():Date {
+function getDateTs():Date {
   return new Date;
 }
 
-console.log(getDate());
+console.log(getDateTs());
 
 // console.log(new Date)
