@@ -28,7 +28,7 @@ function operator4 () {
 }
 
 // デフォルト引数：TypeScriptの場合
-function addPrefix (text: string, prefix: string ="デフォルト") {
+function addPrefixTs (text: string, prefix: string ="デフォルト") {
   return prefix + text;
 }
 
@@ -43,4 +43,4 @@ operator3();
 
 operator4();
 
-console.log(addPrefix("文字列"));
+console.log(addPrefixTs("文字列"));
